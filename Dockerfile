@@ -1,0 +1,1 @@
+FROM biscarch/purescript:0.6.1.1
