@@ -23,7 +23,10 @@ run:
 # 
 
 dev: src/
-	psc-make src/Data/Luminous.purs --output node_modules/
+	mkdir -p node_modules && psc-make src/Data/Luminous.purs --output node_modules/
 
 dist: src/
-	psc-make src/Data/Luminous.purs --output dist/
+	mkdir -p node_modules && psc-make src/Data/Luminous.purs --output dist/
+
+outside-dev: src/
+	docker run -itv `pwd`:/files biscarch/luminous /bin/sh -c "cd /files && make dev"
